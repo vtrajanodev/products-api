@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <!-- <link rel="stylesheet" href="/views/css/style.css"> -->
+
+    <style>
+        body{
+            background-color: rgb(185, 185, 185);
+        }
+
+        form input{
+            display: flex;
+            
+        }
+
+        
+
+        form button{
+            margin-top: 15px;
+        }
+
+        fieldset{
+            margin: 5px;
+            padding: 15px;
+        }
+
+        label{
+            padding: 5px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    
+    
+       
+    <form action="/api/cadastro" method="POST">
+        <fieldset>
+           
+                
+                
+            <label for="name">Nome:</label>
+            <input type="text" name="name" id="name">
+               
+                
+                 
+            <label for="age">Idade:</label>  
+            <input type="number" name="age" id="age">
+               
+
+                
+            <label for="sex">Sexo:</label>
+            <input type="text" name="sex" id="sex">
+                
+                 
+               
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email">    
+              
+            <button type="submit" id="cadastrar">Cadastrar</button>
+
+            
+        </fieldset>    
+    </form>
+    
+
+
+
+
+<script>
+
+    
+    
+    let cadastrar = document.querySelector('#cadastrar')
+    let nome = document.querySelector('#name')
+    let idade = document.querySelector('#age')
+    let sex = document.querySelector('#sex')
+    let email = document.querySelector('#email')
+
+    const obj = []
+    
+
+
+    cadastrar.addEventListener('submit' , async ()=>{
+       
+        
+        obj.push({nome: `${nome.value}`,
+        age: `${idade.value}`,
+        sex: `${sex.value}`,
+        email: `${email.value}`
+        })
+        
+        axios.post('/cadastro' , JSON.stringify(obj))
+    
+    })
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
